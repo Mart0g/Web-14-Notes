@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 - Answers</title>
+  </head>
+  <body>
+		<h1>Kahoot! Quiz Отговори - HTML</h1>
+		<ol>
+			<li>
+				<h3>&lt;span&gt; е блоков елемент в HTML.</h3>
+				<ul>
+					<li>Вярно</li>
+					<li><strong><em>Грешно</em></strong></li>
+				</ul>
+				<p><strong>Защо?:</strong> &lt;span&gt; е inline елемент по default и се залепва директно за предишния, освен ако не е изрично дефинирано да е block, например с помощта на CSS (display: block).</p>
+			</li>
+			<li>
+				<h3>Кое от следните НЕ е валидно поле (във форма)?</h3>
+				<ul>
+					<li>&lt;input type="submit"&gt;</li>
+					<li><strong><em>&lt;input type="password"&gt;&lt;/input&gt;</em></strong></li>
+					<li>&lt;input type="hidden" /&gt;</li>
+					<li>&lt;input type="text" readonly&gt;</li>
+				</ul>
+				<p><strong>Защо?:</strong> По последните HTML стандарти таговете, които са определени като self-closing, изобщо не поддържат опцията за затварящ таг.</p>
+			</li>
+			<li>
+				<h3>&lt;a&gt; таг със зададен href атрибут може да води до повече от една страница</h3>
+				<ul>
+					<li>Вярно</li>
+					<li><strong><em>Грешно</em></strong></li>
+				</ul>
+				<p><strong>Защо?:</strong> Хиперлинковете в &lt;a&gt; таговете могат да изпълняват само едно нещо, без значение дали е препращане на потребителя към зададена страница или изпълнение на някаква функция.</p>
+			</li>
+			<li>
+				<h3>Кое от следните НЕ е валиден таг за списък?</h3>
+				<ul>
+					<li>&lt;dl&gt;</li>
+					<li><strong><em>&lt;cl&gt;</em></strong></li>
+					<li>&lt;ol&gt;</li>
+					<li>&lt;ul&gt;</li>
+				</ul>
+				<p><strong>Защо?:</strong> Definition list, Ordered list и Unordered list са поддържани и използвани HTML тагове. &lt;cl&gt; таг не съществува.</p>
+			</li>
+			<li>
+				<h3>Възможно е да покажем HTML като plain text на страницата (например да изпишем "Това е &lt;div&gt; таг.").</h3>
+				<ul>
+					<li><strong><em>Вярно</em></strong></li>
+					<li>Грешно</li>
+				</ul>
+				<p><strong>Защо?:</strong> Можем, като за целта трябва да overwrite-нем резервираните за HTML тагове с техните т.нар. entities. В случая това ще е & lt; div & gt;.</p>
+			</li>
+			<li>
+				<h3>Какъв е минимумът от HTML5 тагове, нужни за създаването на уеб страница?</h3>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li><strong><em>3</em></strong></li>
+					<li>4</li>
+				</ul>
+				<p><strong>Защо?:</strong> За създаването на един HTML документ ни трябват минимум &lt;html&gt;, &lt;head&gt; и &lt;body&gt; (последните два може и да са празни). Doctype не е добавен тъй като въпросът включва и по-старите версии на HTML.</p>
+			</li>
+			<li>
+				<h3>Кое от следните бихте използвали, за да напишете заглавие в съдържанието на HTML страница?</h3>
+				<ul>
+					<li>&lt;title&gt; Hello World! &lt;/title&gt;</li>
+					<li>&lt;header&gt; Hello World! &lt;/header&gt;</li>
+					<li><strong><em>&lt;h1&gt; Hello World! &lt;/h1&gt;</em></strong></li>
+					<li>&lt;heading&gt; Hello World! &lt;/heading&gt;</li>
+				</ul>
+				<p><strong>Защо?:</strong> &lt;title&gt; се използва за заглавие на самата уеб страница, а не вътре в съдържанието ѝ. &lt;header&gt; е контейнер, в който се съхранява някаква въвеждаща информация - обикновено навигацията на сайта. &lt;heading&gt; таг не съществува.</p>
+			</li>
+			<li>
+				<h3>Какво ще се случи ако НЕ зададем doctype при създаване на HTML страница?</h3>
+				<ul>
+					<li>HTML таговете няма да се интерпретират</li>
+					<li>doctype не влияе по никакъв начин</li>
+					<li>Ще се хвърли грешка в конзолата на браузъра</li>
+					<li><strong><em>HTML5 таговете няма да се интерпретират</em></strong></li>
+				</ul>
+				<p><strong>Защо?:</strong> doctype е нужен на браузъра, за да може да интерпретира правилно новите (семантични) HTML5 тагове - например &lt;section&gt;, &lt;article&gt;, &lt;header&gt;, &lt;footer&gt; и т.н.</p>
+			</li>
+			<li>
+				<h3>В какви ситуации е добре да имаме alt атрибут при дефиниране на &lt;img&gt; елемент?</h3>
+				<ul>
+					<li>Грешка/неправилен URL път в src атрибута</li>
+					<li>Нужда от достъпност и за незрящи потребители</li>
+					<li>Твърде бавна интернет връзка</li>
+					<li><strong><em>Всички изброени</em></strong></li>
+				</ul>
+				<p><strong>Защо?:</strong> alt атрибутът вече е задължително изискване при писане на модерен и семантичен HTML и е алтернатива/решение за всички гореизброени.</p>
+			</li>
+			<li>
+				<h3>Къде НЕ може да се съхранява локално информацията, идваща от уеб приложение?</h3>
+				<ul>
+					<li><strong><em>serverStorage</em></strong></li>
+					<li>localStorage</li>
+					<li>cookies</li>
+					<li>sessionStorage</li>
+				</ul>
+				<p><strong>Защо?:</strong> cookies е старият начин за съхраняване на данни, local (запазва се за постоянно, трие се само при изрично изчистване или друго действие от браузъра/потребителя) и session (също съхранява трайно данните, но се изчиства при затваряне на отворения таб/браузър) са новият и по-сигурен HTML5 начин за web storage. Server storage не съществува.</p>
+			</li>
+		</ol>
+  </body>
+</html>

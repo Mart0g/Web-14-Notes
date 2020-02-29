@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2 - Bonus Tasks</title>
+  </head>
+  <body>
+		<h1>Задачи за упражнение (от предишни години)</h1>
+		<ul>
+			<li>
+				<h2>Задача 1</h2>
+				<p>
+					Имплементирайте функцията <strong>show_page</strong>, която показва информацията за даден избираем курс.<br>
+					Тя приема два аргумента. Първият е <strong>pageId</strong>, който е идентификаторът на курса, който искаме да покажем.<br>
+					Вторият е масив с информация за курсовете. Информацията за курсовете се пази в него по следния начин:
+				</p>
+				<pre>
+					<code>
+						$data = array(
+							'webgl' => array(
+								'title' => 'Компютърна графика с WebGL',
+								'description' => '...',
+								'lecturer' => 'доц. П. Бойчев',
+							),
+							'go' => array(
+								'title' => 'Програмиране с Go',
+								'description' => '...',
+								'lecturer' => 'Николай Бачийски',
+							)
+						);
+					</code>
+				</pre>
+				<p>Например, при следното извикване:</p>
+				<pre>
+					<code>
+						show_page('webgl', $data);
+					</code>
+				</pre>
+				<p>Функцията трябва да върне (не да изпринтира) следния низ:</p>
+				<pre>
+					<code>
+						&lt;h1&gt;Компютърна графика с WebGL&lt;/h1&gt;
+						&lt;h2&gt;доц. П. Бойчев&lt;/h2&gt;
+						&lt;p&gt;...&lt;/p&gt;
+					</code>
+				</pre>
+				<p>
+					Като в <strong>h1</strong> заглавие се намира <strong>'title'</strong> информацията, в <strong>h2</strong> заглавие се намира <strong>'lecturer'</strong> информацията,
+					а в параграф се показва <strong>'description'</strong> информацията за курса с ключ, съвпадащ с параметъра <strong>$pageId</strong>.<br>
+					В предаденото решение не трябва да има нов ред или празно място между HTML таговете.
+				</p>
+			</li>
+			<li>
+				<h2>Задача 2</h2>
+				<p>
+					Имплементирайте функцията <strong>show_nav</strong>, която показва меню за навигация между отделните курсове.<br>
+					Тя приема два аргумента. Първият е масив с информация за курсовете - същият като този в предишната задача.<br>
+					Вторият аргумент е текущият курс, който се преглежда в момента:<br>
+					Ако извикаме функцията по следния начин:
+				</p>
+				<pre>
+					<code>
+						show_nav($data, 'webgl');
+					</code>
+				</pre>
+				<p>Функцията трябва да върне (не да изпринтира) следния низ:</p>
+				<pre>
+					<code>
+						&lt;nav&gt;
+							&lt;a href="?page=webgl" class="selected"&gt;Компютърна графика с WebGL&lt;/a&gt;
+							&lt;a href="?page=go"&gt;Програмиране с Go&lt;/a&gt;
+						&lt;/nav&gt;
+					</code>
+				</pre>
+				<p>
+					Хиперлинковете към кусовете трябва да се съдържат в <strong>nav</strong> секция.<br>
+					Всеки хиперлинк трябва да води към съответната страница на курс и за текст на хиперлинка трябва да се изписва името на курса.<br>
+					Ако адреса на хиперлинка съвпада с текущо отворения курс, подаден като втори параметър, към хиперлинка трябва да се добави клас <strong>selected</strong>, както е показано в примера.<br>
+					В предаденото решение не трябва да има нов ред или празно място между HTML таговете.
+				</p>
+			</li>
+			<h3>Пример за краен резултат за Задача 1 и 2: <a href="http://stoitsev.com/fmi/example/" target="_blank">Линк</a></h3>
+			<li>
+				<h2>Задача 3</h2>
+				<p>
+					Да се имплементира клас на име <strong>Request</strong>, който да улесни работата с <strong>HTTP заявки</strong>.<br>
+					За целта, неговият конструктор трябва да приема като единствен аргумент масив <strong>$_SERVER</strong>, от който да прочете данните, необходими за неговата работа.<br>
+					Класът трябва да има следните методи:
+				</p>
+				<ul>
+					<li><strong>getMethod</strong> - връща като низ, състоящ се само от малки букви, метода на завката (get, post, put и т.н.)</li>
+					<li><strong>getPath</strong> - връща като низ path частта на адреса на заявката.</li>
+					<li><strong>getURL</strong> - връща като низ целия адрес на заявката.</li>
+					<li><strong>getUserAgent</strong> - връща като низ съдържанието на HTTP Header полето User­Agent.</li>
+				</ul>
+				<p>
+					Да се имплементира клас на име <strong>GetRequest</strong>, който да е наследник на <strong>Request</strong> и да поддържа допълнителен метод <strong>getData</strong>.<br>
+					Този метод трябва да прочита query <strong>string</strong> параметрите и да ги връща като <strong>JSON</strong> кодиран обект.<br>
+					Например ако имаме <strong>query strings</strong>:
+				</p>
+				<pre>
+					<code>
+						а=1&b=2
+					</code>
+				</pre>
+				<p>При извикване на метода <strong>getData</strong>, той трябва да върне низ:</p>
+				<pre>
+					<code>
+						{"a":"1","b":"2"}
+					</code>
+				</pre>
+			</li>
+			<h3>Помощни материали за Задача 3:
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html" target="_blank">HTTP Заявки</a>&nbsp;&nbsp;
+				<a href="https://www.php.net/manual/en/reserved.variables.server.php" target="_blank">$_SERVER</a>&nbsp;&nbsp;
+				<a href="https://en.wikipedia.org/wiki/Query_string" target="_blank">Query Strings</a>&nbsp;&nbsp;
+				<a href="https://www.json.org/json-en.html" target="_blank">JSON</a>&nbsp;&nbsp;
+			</h3>
+		<ul>
+  </body>
+</html>

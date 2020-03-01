@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q/A from last time</title>
+  </head>
+  <body>
+    <h1>Въпроси и отговори от предишното упражнение</h1>
+    <ul>
+      <li>
+        <p><strong>Q: </strong>
+          Може ли обикновен (индексиран) масив в PHP да съдържа елементи от различен тип?
+        </p>
+        <p><strong>A: </strong>
+          В индексиран масив е прието всички елементи да са еднотипни (например само <strong>int</strong> или само <strong>string</strong>).<br>
+          Дефиниране както на ключове, така и на стойности от различен тип може да бъде постигнато с помощта на асоциативен масив. Например:
+        </p>
+        <pre>
+          <code>
+            $array = array(
+              "foo" => "bar",
+              "bar" => "foo",
+              100   => -100,
+              -100  => 100,
+            );
+
+            $array2 = array(
+              "foo"   => "bar",
+              42      => 24,
+              "multi" => array(
+                  "dimensional" => array(
+                      "array" => "foo"
+                   )
+              )
+            );
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p><strong>Q: </strong>
+          С колко нишки и по какъв начин работи Apache сървърът в XAMPP при обработка на HTTP заявки?
+        </p>
+        <p><strong>A: </strong>
+          <strong>Tomcat</strong> (както повечето подобни контейнери) използва набор от нишки (<strong>thread pool</strong>),
+          т.е. имаме предварително инициализиран определен (и конфигурируем) брой от нишки.
+          Когато дойде заявка към сървъра (в случая <strong>Apache</strong>), се взима свободна нишка от този набор и се използва за обработка на заявката.
+        </p>
+      </li>
+      <li>
+        <p><strong>Q: </strong>
+          Как да добавяме и премахваме елементи от масив в PHP?
+        </p>
+        <p><strong>A: </strong>
+          Има няколко основни (често използвани) варианта за добавяне на елементи в масив:
+          <ol>
+            <li>Директно добавяне на стойност в масива чрез присвояване:
+              <pre>
+                <code>
+                  $sample = array()
+                  $sample[] = 1;
+                  $sample[2] = 2; // can also be added to a specific index
+                  var_dump($sample);
+
+                  // output
+                  array(2) {
+                    [0] => int(1)
+                    [2] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Използване на идващия с PHP метод <strong>array_push</strong>:
+              <pre>
+                <code>
+                  $sample = array();
+                  array_push($sample, 1);
+                  array_push($sample, 2);
+
+                  // Can also be done in one line
+                  // array_push($sample, 1, 2);
+                  var_dump($sample);
+
+                  // output
+                  array(2) {
+                    [0] => int(1)
+                    [1] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Събиране на два масива (аритметичен оператор или готов метод от PHP):
+              <pre>
+                <code>
+                  // Merging depends on the order of the arrays
+                  $array1 = array('first' => 1);
+                  $array2 = array('second' => 2);
+
+                  // Used mainly for associative arrays as for indexed ones it can lead to unexpected results
+                  // $sample = $array1 + $array2;
+
+                  // Can also be done with PHP predefined methods - safer when using indexed arrays
+                  // $sample = array_merge($array1, $array2);
+                  var_dump($sample);
+
+                  array(2) {
+                    ["first"] => int(1)
+                    ["second"] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+          </ol>
+          <p>Аналогично, има няколко основни (често използвани) варианта и за премахване на елементи в масив.<br>
+          Те също зависят от това дали искаме да изтрием един или много елементи:</p>
+          <ol>
+            <li>За един елемент - директно премахване на стойност в масива чрез <strong>unset</strong>:
+              <pre>
+                <code>
+                  $sample = [1, 2];
+                  // Doesn't do key reindexing
+                  unset($sample[0]);
+                  var_dump($sample);
+
+                  // output
+                  array(1) {
+                    [1] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>За един елемент - използване на друг готов PHP метод - <strong>array_splice</strong>:
+              <pre>
+                <code>
+                  $sample = [1, 2];
+                  // Does automatic key reindexing
+                  // Doesn't change keys in associative arrays
+                  array_splice($sample, 0, 1);
+                  var_dump($sample);
+
+                  // output
+                  array(1) {
+                    [0] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>За повече елементи - знаем стойностите в масива и използваме друг готов PHP метод - <strong>array_diff</strong>:
+              <pre>
+                <code>
+                  $sample = [1, 2, 3];
+                  // Doesn't do reindexing
+                  $sample = array_diff($sample, [1, 3]);
+                  var_dump($sample);
+
+                  array(1) {
+                    [1] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>За повече елементи - знаем ключовете в масива и използваме друг готов PHP метод - <strong>array_diff_key</strong>:
+              <pre>
+                <code>
+                  $sample = [1, 2, 3];
+                  // Doesn't do reindexing
+                  $sample = array_diff_key($sample, [0 => "", 2 => ""]);
+                  var_dump($sample);
+
+                  array(1) {
+                    [1] => int(2)
+                  }
+                </code>
+              </pre>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p><strong>Q: </strong>
+          Какви са разликите при използване на <strong>print_r</strong> и <strong>var_dump</strong>?
+        </p>
+        <p><strong>A: </strong>
+          <strong>print_r()</strong> показва информацията за променлива във вид, който е разбираем за потребителя.<br>
+          Масивите се форматират във вид, който просто показва ключовете и елементите (важи и за обикновените масиви, просто за ключове се използва стандартното индексиране 0,1,2...).<br>
+          <strong>var_dump()</strong> показва информацията за променлива в структуриран вид, включително стойността и типа ѝ.<br>
+          Масивите се обхождат рекурсивно с индентирани стойности, за да се покаже структурата му. Освен това показва и кои стойности и свойства на масива са референции.</p>
+          <pre>
+            <code>
+              $sample = (object) array('web', 'tech', 2020, 1.0);
+
+              // print_r($sample) output
+              stdClass Object (
+                [0] => web
+                [1] => tech
+                [2] => 2020
+                [3] => 1
+              )
+
+              // var_dump($sample) output
+              object(stdClass)#1 (4) {
+                ["0"] => string(3) "web"
+                ["1"] => string(4) "tech"
+                ["2"] => int(2020)
+                ["3"] => float(1)
+              }
+            </code>
+          </pre>
+      </li>
+      <li>
+        <p><strong>Q: </strong>
+          Могат ли изрично да се дефинират типове на променливи в PHP?
+        </p>
+        <p><strong>A: </strong>
+          В първите версии на PHP, типът на променливата се определя от контекста, в който тя се използва.<br>
+          Например при конкатенация се подразбира, че променливата ни най-вероятно е от тип <strong>string</strong>, а при умножение или деление - от тип <strong>int/double/float</strong>.<br>
+          <strong>PHP 5</strong> вече поддържа <strong>type hinting</strong>, което обаче позволява типизиране само в декларацията на функция:
+          <pre>
+            <code>
+              function enroll(Student $student, array $classes) {
+                foreach ($classes as $class) {
+                    echo "Enrolling ".$student->name." in ".$class;
+                }
+              }
+              enroll("name",array("class 1", "class 2")); // Catchable fatal error: Argument 1 passed to enroll() must be an instance of Student, string given
+              enroll($student,"class"); // Catchable fatal error: Argument 2 passed to enroll() must be of the type array, string given
+            </code>
+          </pre>
+          <p>
+            <strong>PHP 7</strong> обаче вече достига една стъпка по-напред и добавя и скаларни типове - <strong>int, float, string</strong> и <strong>bool</strong>.<br>
+            Това значително подобрява четимостта на кода, дава повече контрол върху случващото се (съответно по-лесно се откриват потенциални проблеми) и спестява нуждата от евентуална документация.<br>
+            При задаване на не-стриктни типове, PHP ще се опита да кастне или промени типовете на зададените стойности, за да съвпадат с типовете, дефинирани в декларацията на функцията. Например:
+            <pre>
+              <code>
+                function getTotal(float $a, float $b) {
+                  return $a + $b;
+                }
+
+                getTotal(2, "1 week");
+                // int(2) changed to float(2.0) and string “1 week” changed to float(1.0) but you will get a “Notice: A non well formed numeric value encountered”
+                // returns float(3)
+
+                getTotal(2.8, "3.2");
+                // string "3.2" changed to float(3.2) no notice
+                // returns float(6)
+
+                getTotal(2.5, 1);
+                // int(1) changed to float(1.0)
+                // returns float(3.5)
+              </code>
+            </pre>
+            В случай на задаване на стриктен режим, променливите задължително трябва да съвпадат с декларацията си във функцията, иначе ще се хвърли грешка. Например:
+            <pre>
+              <code>
+                declare(strict_types=1); // always at the beginning of the file, must be declared even before the namespaces
+
+                function getTotal(float $a, float $b) {
+                  return $a + $b;
+                }
+
+                getTotal(2, "1 week");
+                // Fatal error: Uncaught TypeError: Argument 2 passed to getTotal() must be of the type float, string given
+
+                getTotal(2.8,  "3.2");
+                // Fatal error: Uncaught TypeError: Argument 2 passed to getTotal() must be of the type float, string given
+
+                getTotal(2.5, 1);
+                // int(1) change to float(1.0)
+                // returns float(3.5)
+              </code>
+            </pre>
+          </p>
+        </p>
+      </li>
+    </ul>
+  </body>
+</html>

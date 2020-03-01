@@ -8,6 +8,8 @@
   <body>
 		<h1>Multiplication Table in PHP</h1>
 		<?php
+			// rough sample solution, can be done in a simpler / different way
+
 			$rows = 9;
 			$cols = 9;
 			$styles = 'padding: 10px 15px; text-align: center; background-color: #d3d3d3;';

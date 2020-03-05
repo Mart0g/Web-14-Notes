@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3 - Task</title>
+  </head>
+  <body>
+    <h1>Добавяне на избираем предмет</h1>
+	  <form method="POST" action="./ex-3-sample-task-validation.php">
+      <input type="text" name="course_name" placeholder="Име на предмета" required> *<br>
+      <input type="text" name="lecturer" placeholder="Преподавател" required> *<br>
+      <textarea name="description" rows="5" cols="30" style="resize: none" placeholder="Описание..." required></textarea> *<br>
+      <select name="course_group">
+        <option value="group" selected disabled>Изберете група</option>
+        <option value="M">М</option>
+        <option value="PK">ПМ</option>
+        <option value="OKN">ОКН</option>
+        <option value="YAKN">ЯКН</option>
+      </select><br>
+      <input type="number" placeholder="Кредити" name="credits"><br>
+      <p>* - задължително поле</p>
+      <input type="submit" value="Изпращане">
+      <input type="reset" value="Изчистване">
+    </form>
+  </body>
+</html>

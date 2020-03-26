@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ways of writing CSS</title>
+    <link rel="stylesheet" href="ex-6-style-types.css">
+    <style>
+      .embedded {
+        text-align: center;
+        font-size: 40px;
+        font-style: italic;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="text-align: center; font-size: 30px; text-decoration: line-through; color: red;">
+      This is the least used (and worst in terms of page size and more importantly in terms of readability) way for writing CSS.
+    </p>
+    <p class="embedded">
+      This can be used if the CSS is not too much (and for small personal projects) but can get quite big and unreadable for bigger ones.
+    </p>
+    <p class="external">
+      This is the most commonly used (and probably best) way for writing CSS that can be applied for all kinds of projects.
+    </p>
+  </body>
+</html>

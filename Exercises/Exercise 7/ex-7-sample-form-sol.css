@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.form {
+  margin: 5% auto;
+  width: 25%;
+}
+
+.title {
+  background-color: yellowgreen;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.fields {
+  border: 1px solid grey;
+  background-color: #ececec;
+  border-top: none;
+}
+
+input {
+  width: 80%;
+  padding: 5px;
+  margin-top: 5%;
+}
+
+input[type="submit"] {
+  width: 85%;
+  height: 30px;
+  margin-bottom: 5%;
+  background-color: yellowgreen;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,49 @@
+.n-puzzle {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 5px solid #2c3e50;
+  border-radius: 10px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.number,
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 6px solid #2c3e50;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+}
+
+.empty:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.empty {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: white;
+  }
+  50% {
+    background-color: transparent;
+  }
+  75% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: white;
+  }
+}

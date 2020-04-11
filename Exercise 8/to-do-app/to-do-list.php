@@ -21,8 +21,10 @@
       <tbody>
         <?php
           require_once "to-do-db.php";
+
           $db = new ToDoList();
           $select = $db->connection->query("SELECT * FROM todos ORDER BY id DESC");
+
           while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
         ?>
           <tr>

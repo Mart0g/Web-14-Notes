@@ -1,0 +1,117 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.topline {
+  display: block;
+  float: left;
+  margin-left: 70%;
+  margin-top: 15px;
+}
+
+.topline span {
+  margin-left: 10px;
+}
+
+.buttons {
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  background-color: yellowgreen;
+  font-weight: bold;
+}
+
+.buttons:hover {
+  background-color: white;
+  color: yellowgreen;
+  border-color: yellowgreen;
+  cursor: pointer;
+}
+
+.navigation {
+  display: block;
+  float: left;
+  margin-top: 10px;
+  width: 25%;
+}
+
+.navigation ul li {
+  padding: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  list-style-type: none;
+  color: grey;
+  border: 1px solid white;
+  border-bottom: 1px solid darkgrey;
+  font-weight: bold;
+}
+
+.navigation ul li:hover {
+  background-color: yellowgreen;
+  color: white;
+  cursor: pointer;
+}
+
+.course {
+  display: block;
+  float: left;
+  margin-left: 50px;
+  width: 55%;
+}
+
+.course p span {
+  font-style: italic;
+}
+
+.course textarea {
+  resize: none;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.course h1 {
+  padding: 5px;
+  font-size: 30px;
+  list-style-type: none;
+  color: yellowgreen;
+  border: 1px solid white;
+  border-bottom: 1px solid darkgrey;
+}
+
+.course h2 {
+  font-weight: normal;
+}
+
+.buttons-rev {
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: yellowgreen;
+  background-color: white;
+  font-weight: bold;
+}
+
+.buttons-rev:hover {
+  background-color: yellowgreen;
+  color: white;
+  border-color: darkgrey;
+  cursor: pointer;
+}
+
+.course a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+.date {
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+.comment {
+  padding: 5px 10px 20px;
+  border: 1px solid white;
+  border-bottom: 1px solid darkgrey;
+}
